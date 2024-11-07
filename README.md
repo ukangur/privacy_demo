@@ -49,6 +49,6 @@ SELECT * FROM read_csv_auto('./anonymized_users.csv');```
 9. Copy table to encrypted parquet file ```COPY anonymized_tbl TO './anonymized_users_encrypted.parquet'
   (FORMAT 'parquet', ENCRYPTION_CONFIG {footer_key: 'key256'});```
 10. Read the encrypted parquet file using ```SELECT * FROM read_parquet('./anonymized_users_encrypted.parquet', encryption_config = {footer_key: 'key256'});```
-11. Remove the table we saved into duckdb ```DROP TABLE IF EXISTS table_name;```
+11. Remove the table we saved into duckdb ```DROP TABLE IF EXISTS anonymized_tbl;```
 12. Remove the unencrypted anonymized csv ```rm anonymized_users.csv```
 13. Finally remove the original csv by running in bash ```rm random_users.csv```
