@@ -1,8 +1,8 @@
 # Practice session bonus point for Data Engineering
 
 1. Copy the repo and run ```docker compose up -d```
-2. Run bash command ```curl "https://randomuser.me/api/?results=100&format=csv" -o random_users.csv```
-3. Go to duckdb bash using ```docker exec -it duckdb bash```
+2. Go to duckdb bash using ```docker exec -it duckdb bash```
+3. Run bash command ```curl "https://randomuser.me/api/?results=100&format=csv" -o random_users.csv```
 4. Start duckdb using ```duckdb```
 5. Run the following SQL command ```COPY (
     SELECT 
@@ -50,5 +50,5 @@ SELECT * FROM read_csv_auto('./anonymized_users.csv');```
   (FORMAT 'parquet', ENCRYPTION_CONFIG {footer_key: 'key256'});```
 10. Read the encrypted parquet file using ```SELECT * FROM read_parquet('./anonymized_users_encrypted.parquet', encryption_config = {footer_key: 'key256'});```
 11. Remove the table we saved into duckdb ```DROP TABLE IF EXISTS anonymized_tbl;```
-12. Remove the unencrypted anonymized csv ```rm anonymized_users.csv```
+12. Remove the unencrypted anonymized csv by running in bash ```rm anonymized_users.csv```
 13. Finally remove the original csv by running in bash ```rm random_users.csv```
